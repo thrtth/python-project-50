@@ -11,6 +11,8 @@ repository = "https://github.com/thrtth/python-project-50"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
 
 
 [build-system]
