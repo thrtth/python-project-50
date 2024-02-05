@@ -34,10 +34,10 @@ jobs:
       run: |
         make test
     - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
-        if: github.ref_name == 'main'
-        env:
-          CC_TEST_REPORTER_ID: ${{5bca6c7a279c45e5bc71d0d42b4ac8f4cb85f5695896157eca914aa1b144f7b1}}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
+      uses: paambaati/codeclimate-action@v5.0.0
+      if: github.ref_name == 'main'
+      env:
+        CC_TEST_REPORTER_ID: ${{5bca6c7a279c45e5bc71d0d42b4ac8f4cb85f5695896157eca914aa1b144f7b1}}
+      with:
+        coverageCommand: make test-coverage
+        debug: true
