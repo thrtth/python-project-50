@@ -1,14 +1,15 @@
 import json
 
 
-def generate_diff(file_path1, file_path2):
-    def bool_to_lowercase(val):
-        if val is False:
-            return 'false'
-        elif val is True:
-            return 'true'
-        return val
+def bool_to_lowercase(val):
+    if val is False:
+        return 'false'
+    elif val is True:
+        return 'true'
+    return val
 
+
+def generate_diff(file_path1, file_path2):
     file1 = json.load(open(file_path1))
     file2 = json.load(open(file_path2))
     json_keys = sorted(set(list(file1.keys()) + list(file2.keys())))
