@@ -43,26 +43,7 @@ def get_diff(dict1, dict2):
     for key in sorted_keys:
         value1 = dict1.get(key)
         value2 = dict2.get(key)
-        if key in dict1 and key in dict2:
-
-            if is_dict(value1) and is_dict(value2):
-                children = get_diff(value1, value2)
-                result.append({'key': key,
-                               'type': 'nested',
-                               'value': children})
-
-            elif value1 == value2:
-                result.append({'key': key,
-                               'type': 'unchanged',
-                               'value': value1})
-
-            elif value1 != value2:
-                result.append({'key': key,
-                               'type': 'changed',
-                               'old_value': value1,
-                               'new_value': value2})
-
-        elif key not in dict1:
+        if key not in dict1:
             result.append({'key': key,
                            'type': 'added',
                            'new_value': value2})
@@ -71,6 +52,23 @@ def get_diff(dict1, dict2):
             result.append({'key': key,
                            'type': 'removed',
                            'old_value': value1})
+
+        elif is_dict(value1) and is_dict(value2):
+            children = get_diff(value1, value2)
+            result.append({'key': key,
+                           'type': 'nested',
+                           'value': children})
+
+        elif value1 == value2:
+            result.append({'key': key,
+                           'type': 'unchanged',
+                           'value': value1})
+
+        elif value1 != value2:
+            result.append({'key': key,
+                           'type': 'changed',
+                           'old_value': value1,
+                           'new_value': value2})
 
     return result
 
