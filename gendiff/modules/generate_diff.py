@@ -47,19 +47,30 @@ def get_diff(dict1, dict2):
 
             if is_dict(value1) and is_dict(value2):
                 children = get_diff(value1, value2)
-                result.append({'key': key, 'type': 'nested', 'value': children})
+                result.append({'key': key,
+                               'type': 'nested',
+                               'value': children})
 
             elif value1 == value2:
-                result.append({'key': key, 'type': 'unchanged', 'value': value1})
+                result.append({'key': key,
+                               'type': 'unchanged',
+                               'value': value1})
 
             elif value1 != value2:
-                result.append({'key': key, 'type': 'changed', 'old_value': value1, 'new_value': value2})
+                result.append({'key': key,
+                               'type': 'changed',
+                               'old_value': value1,
+                               'new_value': value2})
 
         elif key not in dict1:
-            result.append({'key': key, 'type': 'added', 'new_value': value2})
+            result.append({'key': key,
+                           'type': 'added',
+                           'new_value': value2})
 
         elif key not in dict2:
-            result.append({'key': key, 'type': 'removed', 'old_value': value1})
+            result.append({'key': key,
+                           'type': 'removed',
+                           'old_value': value1})
 
     return result
 
@@ -87,7 +98,8 @@ def stylish(list_of_dicts, depth=0):
             result += f'{" " * depth}  - {item["key"]}: {old_value}\n'
 
         elif item_type == 'nested':
-            result += f'{" " * depth}    {item["key"]}: {stylish(item["value"], depth + INDENT)}\n'
+            result += (f'{" " * depth}    {item["key"]}:'
+                       f' {stylish(item["value"], depth + INDENT)}\n')
 
     result += ' ' * depth + '}'
     return result
@@ -98,7 +110,8 @@ def dict_to_str(some_dict, depth):
     dict_keys = some_dict.keys()
     for key in dict_keys:
         if is_dict(some_dict[key]):
-            result += f'{" " * depth}    {key}: {dict_to_str(some_dict[key], depth + INDENT)}\n'
+            result += (f'{" " * depth}    {key}:'
+                       f' {dict_to_str(some_dict[key], depth + INDENT)}\n')
         else:
             value = value_to_str(some_dict[key], depth)
             result += f'{" " * depth}    {key}: {value}\n'
