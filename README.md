@@ -8,5 +8,8 @@
 
 Запуск функции generate_diff()  
 [![asciicast](https://asciinema.org/a/HC2aNP0kKnQZ88okOknax9t23.svg)](https://asciinema.org/a/HC2aNP0kKnQZ88okOknax9t23)  
+Запуск gendiff с плоскими файлами yaml и json  
+[![asciicast](https://asciinema.org/a/NRwzAh29SpnoY4zTHcZrpJcvr.svg)](https://asciinema.org/a/NRwzAh29SpnoY4zTHcZrpJcvr)  
 Запуск gendiff с файлами yaml и json  
-[![asciicast](https://asciinema.org/a/NRwzAh29SpnoY4zTHcZrpJcvr.svg)](https://asciinema.org/a/NRwzAh29SpnoY4zTHcZrpJcvr)
+[![asciicast](https://asciinema.org/a/D8Us7YM60JaX8oMolj9BU9cSs.svg)](https://asciinema.org/a/D8Us7YM60JaX8oMolj9BU9cSs)  
+
