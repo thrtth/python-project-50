@@ -27,3 +27,8 @@ def test_yaml_flat(get_expect_result_flat):
 def test_json(get_expect_result):
     result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json', 'stylish')
     assert result == get_expect_result
+
+
+def test_yaml(get_expect_result):
+    result = generate_diff('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml', 'stylish')
+    assert result == get_expect_result

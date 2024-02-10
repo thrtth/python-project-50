@@ -64,7 +64,7 @@ def get_diff(dict1, dict2):
                            'type': 'unchanged',
                            'value': value1})
 
-        elif value1 != value2:
+        else:
             result.append({'key': key,
                            'type': 'changed',
                            'old_value': value1,
@@ -77,27 +77,28 @@ def stylish(list_of_dicts, depth=0):
     result = '{\n'
     for item in list_of_dicts:
         item_type = item['type']
-        if item_type == 'unchanged':
-            value = value_to_str(item["value"], depth)
-            result += f'{" " * depth}    {item["key"]}: {value}\n'
+        match item_type:
+            case 'unchanged':
+                value = value_to_str(item["value"], depth)
+                result += f'{" " * depth}    {item["key"]}: {value}\n'
 
-        elif item_type == 'changed':
-            old_value = value_to_str(item["old_value"], depth)
-            new_value = value_to_str(item["new_value"], depth)
-            result += f'{" " * depth}  - {item["key"]}: {old_value}\n'
-            result += f'{" " * depth}  + {item["key"]}: {new_value}\n'
+            case 'changed':
+                old_value = value_to_str(item["old_value"], depth)
+                new_value = value_to_str(item["new_value"], depth)
+                result += f'{" " * depth}  - {item["key"]}: {old_value}\n'
+                result += f'{" " * depth}  + {item["key"]}: {new_value}\n'
 
-        elif item_type == 'added':
-            new_value = value_to_str(item["new_value"], depth)
-            result += f'{" " * depth}  + {item["key"]}: {new_value}\n'
+            case 'added':
+                new_value = value_to_str(item["new_value"], depth)
+                result += f'{" " * depth}  + {item["key"]}: {new_value}\n'
 
-        elif item_type == 'removed':
-            old_value = value_to_str(item["old_value"], depth)
-            result += f'{" " * depth}  - {item["key"]}: {old_value}\n'
+            case 'removed':
+                old_value = value_to_str(item["old_value"], depth)
+                result += f'{" " * depth}  - {item["key"]}: {old_value}\n'
 
-        elif item_type == 'nested':
-            result += (f'{" " * depth}    {item["key"]}:'
-                       f' {stylish(item["value"], depth + INDENT)}\n')
+            case 'nested':
+                result += (f'{" " * depth}    {item["key"]}:'
+                           f' {stylish(item["value"], depth + INDENT)}\n')
 
     result += ' ' * depth + '}'
     return result
