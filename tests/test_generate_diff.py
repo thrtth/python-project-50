@@ -9,8 +9,14 @@ def get_expect_result_flat():
 
 
 @pytest.fixture
-def get_expect_result():
-    with open('tests/fixtures/result.txt') as res_file:
+def get_expect_result_stylish():
+    with open('tests/fixtures/result_stylish.txt') as res_file:
+        return res_file.read()
+
+
+@pytest.fixture
+def get_expect_result_plain():
+    with open('tests/fixtures/result_plain.txt') as res_file:
         return res_file.read()
 
 
@@ -24,11 +30,21 @@ def test_yaml_flat(get_expect_result_flat):
     assert result == get_expect_result_flat
 
 
-def test_json(get_expect_result):
+def test_json_stylish(get_expect_result_stylish):
     result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json', 'stylish')
-    assert result == get_expect_result
+    assert result == get_expect_result_stylish
 
 
-def test_yaml(get_expect_result):
+def test_yaml_stylish(get_expect_result_stylish):
     result = generate_diff('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml', 'stylish')
-    assert result == get_expect_result
+    assert result == get_expect_result_stylish
+
+
+def test_json_plain(get_expect_result_plain):
+    result = generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json', 'plain')
+    assert result == get_expect_result_plain
+
+
+def test_yaml_plain(get_expect_result_plain):
+    result = generate_diff('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml', 'plain')
+    assert result == get_expect_result_plain
