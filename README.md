@@ -12,4 +12,5 @@
 [![asciicast](https://asciinema.org/a/NRwzAh29SpnoY4zTHcZrpJcvr.svg)](https://asciinema.org/a/NRwzAh29SpnoY4zTHcZrpJcvr)  
 Запуск gendiff с файлами yaml и json  
 [![asciicast](https://asciinema.org/a/D8Us7YM60JaX8oMolj9BU9cSs.svg)](https://asciinema.org/a/D8Us7YM60JaX8oMolj9BU9cSs)  
-
+Запуск gendiff с файлами yaml и json в формате вывода plain  
+[![asciicast](https://asciinema.org/a/TjuXoTgb8GY5wUiqYHNXCXpq5.svg)](https://asciinema.org/a/TjuXoTgb8GY5wUiqYHNXCXpq5)  
