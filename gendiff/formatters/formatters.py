@@ -1,3 +1,5 @@
+import json
+
 INDENT = 4
 
 
@@ -54,6 +56,10 @@ def to_plain(list_of_dicts, path_to_value=''):
             case 'nested':
                 result += to_plain(item["value"], new_path)
     return result
+
+
+def to_json(list_of_dicts):
+    return json.dumps({'root': list_of_dicts})
 
 
 def dict_to_str(some_dict, depth):

@@ -3,6 +3,7 @@ from os import path
 import yaml
 from gendiff.formatters.formatters import to_stylish
 from gendiff.formatters.formatters import to_plain
+from gendiff.formatters.formatters import to_json
 
 
 def parse_file(file_path):
@@ -26,6 +27,8 @@ def get_formatter(format_name):
     formatter = to_stylish
     if format_name == 'plain':
         formatter = to_plain
+    elif format_name == 'json':
+        formatter = to_json
     return formatter
 
 
