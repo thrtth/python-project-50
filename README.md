@@ -10,10 +10,10 @@
 
 ### Requirements
 
-python 3.10
-pytest 8.0.0
-pytest-cov 4.1.0
-PyYAML 6.0.1
+python 3.10  
+pytest 8.0.0  
+pytest-cov 4.1.0  
+PyYAML 6.0.1  
 
 ### Installation
 
