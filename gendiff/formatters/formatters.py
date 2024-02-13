@@ -87,8 +87,10 @@ def value_to_plain(value):
         return '[complex value]'
     elif isinstance(value, bool) or value is None:
         return bool_and_none_to_str(value)
-    else:
+    elif isinstance(value, str):
         return f"'{value}'"
+    else:
+        return value
 
 
 def bool_and_none_to_str(val):
