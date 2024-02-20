@@ -24,7 +24,7 @@ make package-install
 
 ### Run
 
-Запуск из консоли: gendiff -f <format> <path to file 1> <path to file 2>  
+Запуск из консоли: gendiff -f \<format\> \<path to file 1\> \<path to file 2\>  
 format может быть stylish, plain или json (по умолчанию stylish)  
 Принимаются файлы json и yaml  
 Пример: gendiff -f plain file1.json file2.json
