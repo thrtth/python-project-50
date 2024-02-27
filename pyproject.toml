@@ -7,6 +7,10 @@ readme = "README.md"
 packages = [
   { include = "gendiff" },
 ]
+classifiers = [
+  "Environment :: Console",
+  "Programming Language :: Python :: 3.10"
+]
 repository = "https://github.com/thrtth/python-project-50"
 
 [tool.poetry.dependencies]

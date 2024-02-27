@@ -1,4 +1,5 @@
-from gendiff.formatters.common import bool_and_none_to_str
+class UnknownPlainType(Exception):
+    pass
 
 
 def to_plain(list_of_dicts, path_to_value=''):
@@ -22,6 +23,13 @@ def to_plain(list_of_dicts, path_to_value=''):
 
             case 'nested':
                 result += to_plain(item["value"], new_path)
+
+            case 'unchanged':
+                pass
+
+            case _:
+                raise UnknownPlainType(f'Unknown type for '
+                                       f'plain formatter: {item_type}')
     return result
 
 
@@ -34,3 +42,13 @@ def value_to_plain(value):
         return f"'{value}'"
     else:
         return value
+
+
+def bool_and_none_to_str(val):
+    if val is False:
+        return 'false'
+    elif val is True:
+        return 'true'
+    elif val is None:
+        return 'null'
+    return val
